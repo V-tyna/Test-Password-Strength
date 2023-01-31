@@ -1,28 +1,47 @@
-<h1>Test strength of your password</h1>
-<form [formGroup]="passwordCheckForm" (ngSubmit)="cleanForm()">
-  <label for="password">Password: </label>
-  <input
-    [type]="isHide ? 'password' : 'text'"
-    formControlName="password"
-    (ngModelChange)="handlePassword()"
+<div class="container">
+  <h1>Test strength of your password</h1>
+  <form [formGroup]="passwordCheckForm" (ngSubmit)="cleanForm()">
+    <label for="password">Password: </label>
+    <input
+      [type]="isHide ? 'password' : 'text'"
+      formControlName="password"
+      (ngModelChange)="handlePassword()"
     />
-    <button type="button" (click)="toggle()">{{isHide ? 'Show password' : 'Hide password'}}</button>
+    <button type="button" (click)="showPassword()">
+      {{ isHide ? "Show password" : "Hide password" }}
+    </button>
     <button type="submit">Clean</button>
-</form>
-<div class="box-color-area">
-  <div class="color-box" [ngClass]="{
-    red: passwordCheckForm.controls['password'].invalid && passwordCheckForm.controls['password'].dirty,
-    easy: easy,
-    medium: medium,
-    hard: hard
-  }"></div>
-  <div class="color-box" [ngClass]="{
-    red: passwordCheckForm.controls['password'].invalid && passwordCheckForm.controls['password'].dirty,
-    medium: medium,
-    hard: hard
-  }"></div>
-  <div class="color-box" [ngClass]="{
-    red: passwordCheckForm.controls['password'].invalid && passwordCheckForm.controls['password'].dirty,
-    hard: hard
-  }"></div>
+  </form>
+  <div class="box-color-area">
+    <div
+      class="color-box"
+      [ngClass]="{
+        red:
+          passwordCheckForm.controls['password'].invalid &&
+          passwordCheckForm.controls['password'].dirty,
+        easy: easy,
+        medium: medium,
+        hard: hard
+      }"
+    ></div>
+    <div
+      class="color-box"
+      [ngClass]="{
+        red:
+          passwordCheckForm.controls['password'].invalid &&
+          passwordCheckForm.controls['password'].dirty,
+        medium: medium,
+        hard: hard
+      }"
+    ></div>
+    <div
+      class="color-box"
+      [ngClass]="{
+        red:
+          passwordCheckForm.controls['password'].invalid &&
+          passwordCheckForm.controls['password'].dirty,
+        hard: hard
+      }"
+    ></div>
+  </div>
 </div>
